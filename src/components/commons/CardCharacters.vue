@@ -1,12 +1,12 @@
 <template>
   <section class="container">
       <div class="cards__content">
-          <div class="cards" v-for="card in 12" :key="card">
+          <div class="cards">
                 <img src="https://www.mrw.it/img/cope/0iwkf4_1609360688.jpg">
-                <h2 class="cards__title">Titolo</h2>
-                <p class="cards__title__original">Titolo Originale</p>
-                <p class="cards__languege">Lingua</p>
-                <p class="cards__voto">Voto: 9</p>
+                <h2 class="cards__title">{{character.title}}</h2>
+                <p class="cards__title__original">{{character.original_title}}</p>
+                <p class="cards__languege">Lingua: {{character.original_language}}</p>
+                <p class="cards__voto">Voto: {{character.vote_average}}</p>
           </div>          
       </div>
 
@@ -25,16 +25,20 @@ export default {
 <style>
 .cards__content{
     display: flex;
-    flex-wrap: wrap;
     margin: 20px 0;
-    justify-content: center;
 }
 .cards{
+    width: 400px;
+    height: auto;
     display: flex;
     flex-direction: column;
     background-color: var(--background-cards);
     color: var(--color-cards);
     padding: 2rem;
     margin: 5px;
+}
+img {
+    width: 200px;
+    height: 200px;
 }
 </style>

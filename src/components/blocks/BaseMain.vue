@@ -1,15 +1,17 @@
 <template>
   <main class="main">
-      <CardCharacters />
+      <SectionCharacters />
   </main>
 </template>
 
 <script>
-import CardCharacters from '../commons/CardCharacters.vue';
+
+import SectionCharacters from '../sections/SectionCharacters.vue';
+
 export default {
     name: 'BaseMain',
     components: {
-    CardCharacters
+    SectionCharacters
 },
 }
 </script>

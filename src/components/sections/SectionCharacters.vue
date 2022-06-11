@@ -3,8 +3,10 @@
       <div>
           <SearchBar />
       </div>
-      <div>
-          <CardCharacters class="col-12"/>
+      <div class="containter">
+        <div class="CardCharacter__content">
+          <CardCharacters v-for="character in characters" :key="character.id" :character="character"/>
+        </div>
       </div>
   </section>
 </template>
@@ -13,12 +15,14 @@
 <script>
 
 import axios from 'axios';
-import { response } from 'express';
 import CardCharacters from '../commons/CardCharacters.vue';
 import SearchBar from '../commons/SearchBar.vue';
 
 export default {
     name: 'SectionCharacters',
+    props: {
+    msg: String
+    },
     data(){
       return{
           characters: [],
@@ -29,22 +33,24 @@ export default {
         CardCharacters,
         SearchBar,
     },
-    created(){
+    created() {
         axios.get('https://api.themoviedb.org/3/search/movie', {
-            params: {
+        params: {
             api_key: 'e99307154c6dfb0b4750f6603256716d',
-            query: 'ritorno al futuro',
+            query: 'ritorno',
             language: 'it-IT',
-            }
-        }).then((response) =>{
-            console.log(response);
+        }
+        }).then((response) => {
+            this.characters = response.data.results;
         }).catch((error) => {
-            console.log(error);
-        });
+        console.log(error);
+        })
     },
 }
 </script>
 
-<style>
-
+<style lang="scss" scoped>
+.CardCharacter__content{
+    color: #fff;
+}
 </style>
