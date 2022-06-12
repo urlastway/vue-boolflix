@@ -1,9 +1,6 @@
 <template>
   <section>
-      <div>
-          <SearchBar />
-      </div>
-      <div class="containter">
+      <div class="containter">        
         <div class="CardCharacter__content">
           <CardCharacters v-for="character in characters" :key="character.id" :character="character"/>
         </div>
@@ -16,7 +13,6 @@
 
 import axios from 'axios';
 import CardCharacters from '../commons/CardCharacters.vue';
-import SearchBar from '../commons/SearchBar.vue';
 
 export default {
     name: 'SectionCharacters',
@@ -26,12 +22,10 @@ export default {
     data(){
       return{
           characters: [],
-          FilterCharacters: [],
       }  
     },
     components:{
         CardCharacters,
-        SearchBar,
     },
     created() {
         axios.get('https://api.themoviedb.org/3/search/movie', {
