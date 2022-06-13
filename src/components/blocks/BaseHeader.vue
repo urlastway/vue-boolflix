@@ -44,7 +44,7 @@ export default {
                     language: 'it-IT',
                 }
                 }).then((response) => {
-                    data.films = response.data.results;
+                    data.serieTv = response.data.results;
                 }).catch((error) => {
                 console.log(error);
                 });   
