@@ -1,10 +1,12 @@
 <template>
   <div class="Card">
-    <img :src="getLink(info.poster_path)">
+        <img :src="getLink(info.poster_path ? info.poster_path : info.backdrop_path)">
         <h2 class="movies__title">{{info.title ? info.title : info.name}}</h2>
         <p class="movies__title__original">{{info.original_title ? info.original_title : info.original_name}}</p>
         <p class="movies__leng">Lingua: <img :src="existFlag(info.original_language) ? require(`../../assets/img/flags/${info.original_language}.png`) : null"></p>
-        <p class="movies__voto">Voto: {{info.vote_average}}</p>
+        <span class="movies__voto" v-for="Stars in vote" :key="Stars">
+            <i class="fa-solid fa-star"></i>
+        </span>
   </div>
 </template>
 
@@ -21,6 +23,11 @@ export default {
           'en'
         ],
         }
+    },
+    computed:{
+      vote(){
+        return Math.ceil(this.info.vote_average / 2);
+      }
     },
     methods: {
       existFlag(lang) {

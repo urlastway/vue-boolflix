@@ -44,7 +44,6 @@ export default {
     width: 400px;
     height: auto;
     display: flex;
-    flex-direction: column;
     background-color: var(--background-cards);
     color: var(--color-cards);
     padding: 2rem;

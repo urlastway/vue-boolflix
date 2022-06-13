@@ -9,8 +9,8 @@
 </template>
 
 <script>
-import BaseMain from './components/blocks/BaseMain.vue';
 import BaseHeader from './components/blocks/BaseHeader.vue';
+import BaseMain from './components/blocks/BaseMain.vue';
 import BaseFooter from './components/blocks/BaseFooter.vue';
 
 
